@@ -1,0 +1,11 @@
+---
+cs:
+  application:
+    header:
+      in_details: v detailech
+      my_profile: Můj účet
+      sign_in: Přihlásit se
+      sign_out: Odhlásit se
+      sign_up: Registrace
+      choose_area: Vyberte oblast
+      choose_site: Vyberte středisko
