@@ -2,7 +2,7 @@
 
 require "set"
 
-module I18nYamlEditor
+module I18nYamlTranslator
   class Key
     attr_accessor :name, :translations
 

@@ -4,11 +4,8 @@ require "set"
 require "pathname"
 
 require_relative "transformation"
-# require "i18n_yaml_editor/category"
-# require "i18n_yaml_editor/key"
-# require_relative "i18n_yaml_editor/translation"
 
-module I18nYamlEditor
+module I18nYamlTranslator
   class DuplicateTranslationError < StandardError; end
 
   class Store

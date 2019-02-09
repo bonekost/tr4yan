@@ -1,16 +1,16 @@
 require 'psych'
 require 'yaml'
-require './lib/yandex-api'
+require_relative 'yandex'
 
-module I18nYamlEditor
+module I18nYamlTranslator
   class App
     def initialize path, from_language, to_language
       @from_lang = from_language.to_s
       @to_lang = to_language.to_s
       @path = File.expand_path(path)
       @store = Store.new
-      I18nYamlEditor.app = self
-      Yandex::API::Translate.load 'config/yandex_direct.yml'
+      I18nYamlTranslator.app = self
+      Yandex::Translate.load 'config/yandex_direct.yml'
     end
 
     attr_accessor :store
@@ -44,7 +44,7 @@ module I18nYamlEditor
 
         keys.each do |name, key|
           key.translations.sort_by(&:locale).each do |translation|
-            if translation.locale == to
+            if translation.locale == to && !translation.text.nil?
               t = yandex(translation.text, lang)
               translation.text = t
             end
@@ -54,7 +54,7 @@ module I18nYamlEditor
     end
 
     def yandex(text, language)
-      result = Yandex::API::Translate.do(text, language)
+      result = Yandex::Translate.do(text, language)
       sleep 1
       return result['text'].join(' ') if result['text']
     end

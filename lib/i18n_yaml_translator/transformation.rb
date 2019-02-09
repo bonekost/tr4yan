@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module I18nYamlEditor
+module I18nYamlTranslator
   class TransformationError < StandardError; end
 
   module Transformation

@@ -1,10 +1,10 @@
 require_relative "app"
 
-module I18nYamlEditor
+module I18nYamlTranslator
   class Translate
 
     def app
-      I18nYamlEditor.app
+      I18nYamlTranslator.app
     end
 
     def send_translation
